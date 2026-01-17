@@ -136,17 +136,17 @@ const descriptionShowOnStart = 1;
 
 // 	1.6.2. Hauptueberschrift / 1.6.1. Main headline
 
-const descriptionHeading1 = "OB-Wahl 2026 in Freiburg";
+const descriptionHeading1 = "Mobilitäts Wahl-O-Mat";
 
 
 // 	1.6.3. Zweite Ueberschrift / 1.6.2. Second Headline
 
-const descriptionHeading2 = "Zur OB-Wahl 2026 in Freiburg";
+const descriptionHeading2 = "zur OB-Wahl 2026 in Freiburg";
 
 
 // 	1.6.4. Kurzer Text um was es bei der Wahl geht / 1.6.3. Short (descriptive) text on what's the election about
 
-const descriptionExplanation = "Am 26. April 2026 finden in Freiburg die OB-Wahlen statt. Sie k&ouml;nnen sich hier alle Parteipositionen anschauen und miteinander vergleichen. Dies ist <strong>keine Wahlempfehlung</strong>, sondern ein Informationsangebot zu Wahlen! <br /> Zur Auswahl stehen vier Parteien mit unterschiedlichen Meinungen zu kontroversen Themen der Obst- und Frucht-Landschaft."; 
+const descriptionExplanation = "Am 26. April 2026 finden in Freiburg die OB-Wahlen statt. Sie k&ouml;nnen sich hier die Positionen der Kandidierenden anschauen und miteinander vergleichen. Dies ist <strong>keine Wahlempfehlung</strong>, sondern ein Informationsangebot zur Wahl! <br /><br /> Zur Auswahl stehen fünf Kandidierende mit unterschiedlichen Meinungen zum Thema Mobilität."; 
 
 
 // 	--------------------------------------------------------------------
