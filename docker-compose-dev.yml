@@ -1,10 +1,10 @@
 services:
-  mat-o-wahl:
-    container_name: mat-o-wahl
+  app:
     build: .
     restart: always
     ports:
-      - "80:80"
+      - "8080:80"
     volumes:
-      - ./data:/var/www/html/data
-      - ./extras:/var/www/html/extras
+      - ./data:/usr/share/nginx/html/data
+      - ./extras:/usr/share/nginx/html/extras
+      - ./styles:/usr/share/nginx/html/styles

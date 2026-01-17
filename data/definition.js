@@ -62,14 +62,14 @@
 	e.g. "Airport","The airport shall be expanded."
 */
 
-const fileQuestions = "Obsthausen_Fragen.csv";
+const fileQuestions = "Fragen.csv";
 
 
 // 	--------------------------------------------------------------------
 
 //	1.2 ANZAHL der FRAGEN / 1.2 NUMBER of QUESTIONS
 
-const intQuestions = 6;
+const intQuestions = 10;
 
 
 // 	--------------------------------------------------------------------
@@ -94,7 +94,7 @@ const intQuestions = 6;
  	1.3. PARTIES, PARTY-INFORMATION and ANSWERS
 */
 
-const fileAnswers = "Obsthausen_Parteien.csv";
+const fileAnswers = "Kandidierende.csv";
 
 /*
  	1.5. BILDGROESSE des PARTEILOGOS (am Ende)
@@ -136,17 +136,17 @@ const descriptionShowOnStart = 1;
 
 // 	1.6.2. Hauptueberschrift / 1.6.1. Main headline
 
-const descriptionHeading1 = "Fruchtkorbwahlen";
+const descriptionHeading1 = "OB-Wahl 2026 in Freiburg";
 
 
 // 	1.6.3. Zweite Ueberschrift / 1.6.2. Second Headline
 
-const descriptionHeading2 = "Die Wahl zur neuen Regierung in Obsthausen";
+const descriptionHeading2 = "Zur OB-Wahl 2026 in Freiburg";
 
 
 // 	1.6.4. Kurzer Text um was es bei der Wahl geht / 1.6.3. Short (descriptive) text on what's the election about
 
-const descriptionExplanation = "Am 30. Februar finden in Obsthausen Wahlen statt. Sie k&ouml;nnen sich hier alle Parteipositionen anschauen und miteinander vergleichen. Dies ist <strong>keine Wahlempfehlung</strong>, sondern ein Informationsangebot zu Wahlen! <br /> Zur Auswahl stehen vier Parteien mit unterschiedlichen Meinungen zu kontroversen Themen der Obst- und Frucht-Landschaft."; 
+const descriptionExplanation = "Am 26. April 2026 finden in Freiburg die OB-Wahlen statt. Sie k&ouml;nnen sich hier alle Parteipositionen anschauen und miteinander vergleichen. Dies ist <strong>keine Wahlempfehlung</strong>, sondern ein Informationsangebot zu Wahlen! <br /> Zur Auswahl stehen vier Parteien mit unterschiedlichen Meinungen zu kontroversen Themen der Obst- und Frucht-Landschaft."; 
 
 
 // 	--------------------------------------------------------------------
@@ -192,31 +192,32 @@ const descriptionExplanation = "Am 30. Februar finden in Obsthausen Wahlen statt
 
 // 	1.7.B.1: Allgemeines. "Angaben gemäß § 5 TMG" / General information
 
-const imprintGeneral = `<p>Muster e. V.<br /> 
-			Musterstra&szlig;e 111<br />
-			Geb&auml;ude 44<br />
-			90210 Musterstadt</p>
+const imprintGeneral = `<p>VCD Regionalverband Südbaden e. V.<br /> 
+			Wentzingerstra&szlig;e 15<br />
+			79106 Freiburg</p>
 
-			<p>Vereinsregister: VR 12 3456<br />
-			Registergericht: Amtsgericht Musterstadt</p>
+			<p>Vereinsregister: VR 2018<br />
+			Registergericht: Amtsgericht Freiburg</p>
 
-			<p><strong>Vertreten durch:</strong><br />
-			Vorstand: Dr. Harry Mustermann<br />
-			Luise Beispiel</p>`
+			<p><strong>Vertreten durch den Vorstand:</strong><br />
+			Paul Daum,<br />
+			Reinhard Hahn,<br />
+			Bernhard Meucht,<br />
+			Stephan Mohr,<br />
+			Imke Senst,<br />
+			Dr. Annette Uhlmann</p>`
 
 
 // 	1.7.B.2: Kontaktdaten / Contact details
 
-const imprintContact = `<p>Telefon: +49 (0) 123 44 55 66<br />
-			Telefax: +49 (0) 123 44 55 99<br />
-			E-Mail: mustermann@musterfirma.de<br />
-			Web: musterfirma.de</p>`
+const imprintContact = `<p>E-Mail: suedbaden@vcd.org<br />
+			Web: www.vcd-suedbaden.de</p>`
 
 
 //	1.7.B.3: (optional) Umsatzsteuer-ID / (optional) VAT-ID
 
-const imprintVATid = `<p>Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27 a Umsatzsteuergesetz:<br />
-			DE 999 999 999</p>`
+const imprintVATid = `<p>Umsatzsteuer-Identifikationsnummer</br> gem&auml;&szlig; &sect; 27 a Umsatzsteuergesetz:<br />
+			DE 06470/58712</p>`
 
 
 //	1.7.B.4: 
@@ -231,16 +232,16 @@ const imprintDisputeResultion = `<p>Die Europäische Kommission stellt eine Plat
 //	(optional) Redaktion: Person(en), die die Fragen ausgearbeitet hat
 //	(optional) Editor: Person(s), who worked on the questions
 
-const imprintEditors = `<p>Max Mustermann, Martina Mustermann, Harry Hirsch</p>
-		     <p> <a href='mailto:max@mustermann-politikfreund.de'>max@mustermann-politikfreund.de</a></p>`;
+const imprintEditors = `<p>Paul Daum</p>
+		     <p> <a href='mailto:suedbaden@vcd.org'>suedbaden@vcd.org</a></p>`;
 
 
 //	1.7.B.6
 //	(optional) Technik: Person(en), die das System aufgesetzt hat
 //	(optional) Programming: Person(s), who set up the system
 
-const imprintProgramming = `<p>Max Mustermann, Hans Wurst</p>
-			<p> <a href='mailto:info@hans-wurst-webdesign-obsthausen.com'>E-Mailadresse</a> </p>`;
+const imprintProgramming = `<p>Paul Daum</p>
+			<p> <a href='mailto:suedbaden@vcd.org'>suedbaden@vcd.org</a> </p>`;
 
 
 //	1.7.B.7
@@ -299,7 +300,7 @@ const separator = ";";
 	Please find some examples above.  
 */  
 
-const design = ["default.css","buttons-colors-on.css", "progressbar.css"];
+const design = ["vcd.css","buttons-colors-on.css", "progressbar.css"];
 
 
 /*
