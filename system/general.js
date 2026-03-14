@@ -78,13 +78,7 @@ function fnShowQuestions(csvData)
 	
 	// ... und Anzeigen
 	var questionNumber = -1;
-	
-	// v.0.6 - deaktiviert, da nun am Anfang ein Willkommensbildschirm erscheint.
-	// neu: fnHideWelcomeMessage()
-	// fnShowQuestionNumber(questionNumber);
 } 
-
-
 
 // Einlesen der Parteipositionen und Partei-Informationen (aus fnStart())
 function fnReadPositions(csvData)
@@ -111,18 +105,13 @@ function fnEvaluation()
 	$("#keepStats").hide();
 
 	// Anzahl der Fragen bestimmen, da Positions-Array ein Vielfaches aus Fragen * Parteien enthält.
-//	var numberOfQuestions = arQuestionsLong.length;		// 3 Fragen
-//	var numberOfPositions = arPartyPositions.length; // 12 = 3 Fragen * 4 Parteien
-
-	var numberOfQuestions = intQuestions;		// 3 Fragen
-	var numberOfPositions = intQuestions * intParties; // 12 = 3 Fragen * 4 Parteien
+	var numberOfQuestions = intQuestions;
+	var numberOfPositions = intQuestions * intParties;
 
 	var indexPartyInArray = -1; // Berechnung der Position des Index der aktuellen Partei
 	var positionsMatch = 0;	// Zaehler fuer gemeinsame Positionen
 
-	// var arResults = new Array();
 	var arResults = []
-//	for (i = 0; i <= (arPartyFiles.length-1); i++)
 	for (i = 0; i <= (intParties-1); i++)
 	{
 		arResults.push(0);	// Array mit leeren Werten füllen		
@@ -162,22 +151,6 @@ function fnEvaluation()
 		} // end: Frage nicht uebersprungen
 	} // end: for numberOfQuestions
 
-
-/*	
-	// Wenn Nutzer eingewilligt hat ...
-	if ( $("#keepStatsCheckbox").prop("checked")==1)
-	{
-		// Sende Auswertung an Server
-		fnSendResults(arResults, arPersonalPositions);
-	}
-	else
-	{
-	}
-*/
-
-//	$("#keepStats").hide().empty();	
-
-//	console.log(arResults)
 	return arResults;
 
 }
@@ -366,21 +339,16 @@ function fnTransformPositionToText(position)
 	
 }
 
-// Gibt ein Bild/CSS-Klasse für den Balken in der Auswertung entsprechend der Prozentzahl Uebereinstimmung zurück
+// Gibt eine CSS-Klasse für den Balken in der Auswertung entsprechend der Prozentzahl Uebereinstimmung zurück
 function fnBarImage(percent)
 {
-	// bis v.0.3 mit PNG-Bildern, danach mit farblicher Bootstrap-Progressbar
-	
 	if (percent <= 33) { 
-		// var barImage = "contra_px.png"; 
 		var barImage = "bg-danger"; 
 	}
 	else if (percent <= 66) { 
-		// var barImage = "neutral_px.png"; 
 		var barImage = "bg-warning"; 
 	}
 	else { 
-		// var barImage = "pro_px.png"; 
 		var barImage = "bg-success"; 
 	}
 	

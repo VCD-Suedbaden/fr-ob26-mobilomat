@@ -5,11 +5,8 @@ var TEXT_START = "Los geht's!"
 var TEXT_VOTING_PRO = "Stimme zu"
 var TEXT_VOTING_NEUTRAL = "Egal/Weiß nicht"
 var TEXT_VOTING_CONTRA = "Stimme nicht zu"
-var TEXT_VOTING_SKIP = "Überspringen"
-var TEXT_VOTING_DOUBLE = "Doppelt gewichten"
-
-// Statistic
-var TEXT_ALLOW_STATISTIC = "Anonyme Auswertung erlauben. Siehe <a href='"+imprintPrivacyUrl+"' target='_blank'>Datenschutzerklärung</a>." // Variable loeschen!
+var TEXT_VOTING_SKIP = "Frage überspringen"
+var TEXT_VOTING_DOUBLE = "Antwort doppelt gewichten"
 
 var TEXT_ALLOW_STATISTIC_TITLE = "Bevor dein Ergebnis erscheint ..."
 var TEXT_ALLOW_STATISTIC_TEXT = "Genehmigst du uns (den Betreibern dieser Seite) die Übertragung deiner <strong>anonymisierten</strong> Antworten für statistische Zwecke gemäß unserer <a href='"+imprintPrivacyUrl+"' target='_blank'>Datenschutzerklärung</a>? Damit hilfst du uns, den Mobil-o-Mat und die Fragen in Zukunft zu verbessern."
@@ -17,8 +14,8 @@ var TEXT_ALLOW_STATISTIC_YES = "Ja, na klar!"
 var TEXT_ALLOW_STATISTIC_NO = "Nein, danke."
 
 // Footer
-var TEXT_IMPRINT = "[§] Impressum"
-var TEXT_RESTART = "[&#x21BB;] Fragebogen neu starten"
+var TEXT_IMPRINT = "Impressum"
+var TEXT_RESTART = "[&#x21BB;] Neu starten"
 
 // Results
 var TEXT_RESULTS_HEADING = "Übereinstimmung mit den Positionen"
