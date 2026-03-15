@@ -1,8 +1,10 @@
+const fadeTimeMs = 50;
 const fileQuestions = "Fragen.csv";
 const intQuestions = 15;
 const fileAnswers = "Kandidierende.csv";
 const intPartyLogosImgWidth = "10%";
 const intPartyLogosImgHeight = "10%";
+const resultsHeading = "Ergebnisse";
 const descriptionShowOnStart = 1;
 const descriptionHeading1 = "Mobilomat";
 const descriptionHeading2 = "zur OB-Wahl 2026 in Freiburg";

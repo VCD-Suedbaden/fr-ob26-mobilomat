@@ -92,13 +92,13 @@ function fnStart()
 	} else {
 		// Das System ist am Anfang noch nicht fertig geladen. Deshalb müssen wir einen Moment warten. :(		
 		$("#descriptionHeading1").empty().append("<h1>Loading / Lädt</h1>")
-		$("#descriptionHeading2").empty().append("<h2>Please wait a moment / Bitte einen Moment warten</h2>");
+		$("#descriptionHeading2").empty().append("<h2>Bitte einen Moment warten</h2>");
 
 		var descriptionExplanationContent = ""
 		descriptionExplanationContent += '<div class="progress">'
 		descriptionExplanationContent += '	<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>'
 		descriptionExplanationContent += '</div>'
-		descriptionExplanationContent += "This message disappears in less than 5 seconds. If not something went wrong. / <br /> Diese Nachricht verschwindet in weniger als 5 Sekunden. Andernfalls ist etwas schief gelaufen."
+		descriptionExplanationContent += "Diese Nachricht verschwindet in weniger als 5 Sekunden. Andernfalls ist etwas schief gelaufen."
 		
 		$("#descriptionExplanation").empty().append(descriptionExplanationContent);
 				
@@ -138,27 +138,28 @@ function fnShowQuestionNumber(questionNumber)
 		
 		// Aufbau der Liste zum Vor/Zurückgehen bei den Fragen
 		fnJumpToQuestionNumber(questionNumber);
-	
+
 		// bodyTextSize = $("#headingContent").css("font-size");
 		// bodyTextSize = parseInt(bodyTextSize)
 
 		// Fragen ausblenden und neue Frage einblenden - nur zur besseren Visualisierung
-		$("#sectionShowQuestions").fadeOut(300).hide();		
+		$("#sectionShowQuestions").fadeOut(fadeTimeMs).hide();		
 			$("#showQuestionsHeader").empty().append("<h2>"+arQuestionsShort[questionNumber]+"</h2>");
 			$("#showQuestionsQuestion").empty().append(arQuestionsLong[questionNumber]);			
-		$("#sectionShowQuestions").fadeIn(300);
+		$("#sectionShowQuestions").fadeIn(fadeTimeMs);
 
 		
 		// Buttons ausblenden, damit Nutzer nicht zufällig drauf klickt
-		$("#sectionVotingButtons").fadeOut(300).hide();
-		$("#sectionVotingButtons").fadeIn(300);
+		$("#sectionVotingButtons").fadeOut(fadeTimeMs).hide();
+		$("#sectionVotingButtons").fadeIn(fadeTimeMs);
 
 		// Navigation (Nummer der Frage) ein-/ausblenden		
-		$("#sectionNavigation").fadeOut(300).hide();
+		$("#sectionNavigation").fadeOut(fadeTimeMs).hide();
 			// Bootstrap-Progressbar
 			var percent = fnPercentage((questionNumber+1),arQuestionsLong.length);
 			$("#progress-bar").width(percent+"%")
 			$("#progress-bar").attr("aria-valuenow",percent)
+			$("#progress-counter").text("Frage " + (questionNumber + 1) + " von " + arQuestionsLong.length);
 		
 			// Klick-Funktion auf Bilder/Buttons legen.
 		   $("#votingPro").click(function () {
@@ -186,7 +187,7 @@ function fnShowQuestionNumber(questionNumber)
 			// und Bild/Button zuruecksetzen
 			$("#votingDouble").removeClass( "btn-dark" ).addClass( "btn-outline-dark" );
 
-		$("#sectionNavigation").fadeIn(300);
+		$("#sectionNavigation").fadeIn(fadeTimeMs);
 
 	
 	}
@@ -213,26 +214,8 @@ function fnShowQuestionNumber(questionNumber)
 
 
 		// Buttons einblenden für detaillierte Ergebnisse
-		$("#resultsButtons").fadeIn(500);
-		
-		
-		// Abfrage zur Statistik einblenden (v.0.6.)
-		if ((imprintPrivacyUrl.length > 0) && (statsRecord) )
-		{		
-			$('#statisticsModal').modal('show')
-			
-			// Klick-Funktion mit den Ergebnissen zum Senden auf "Ja" legen
-			document.getElementById("statisticsModalButtonYes").addEventListener("click", function() {
-				fnSendResults(arResults, arPersonalPositions)
-				$('#statisticsModal').modal('toggle') 
-  			});
-			
-
-		}
-			
-		
+		$("#resultsButtons").fadeIn(fadeTimeMs);		
 	} 
-	
 }
 
 // 02/2015 BenKob
@@ -261,7 +244,7 @@ function fnChangeVotingDouble()
 function fnJumpToQuestionNumber(questionNumber)
 {
 	// alten Inhalt ausblenden und loeschen
-	$("#navigationJumpToQuestion").fadeOut(500).empty().hide();
+	$("#navigationJumpToQuestion").fadeOut(100).empty().hide();
 
 	// Durchlauf des Arrays bis zur ausgewählten Frage und Setzen der 99, falls NaN
 	for (i =0; i<questionNumber; i++) {
@@ -383,10 +366,6 @@ function fnEvaluationShort(arResults)
 						tableContent += "<strong>"
 						tableContent += arPartyNamesLong[partyNum];
 						tableContent += "</strong>" 
-	
-						tableContent += " (&#8663; <a href='"+arPartyInternet[partyNum]+"' target='_blank' alt='Link: "+arPartyNamesLong[partyNum]+"' title='Link: "+arPartyNamesLong[partyNum]+"'>";		
-						tableContent += arPartyNamesShort[partyNum];
-						tableContent += "</a>)";
 	
 						// Beschreibung der Partei - falls in der CSV vorhanden.
 						// Nur die ersten 32 Zeichen anzeigen. 
@@ -622,7 +601,7 @@ function fnEvaluationByThesis(arResults)
 								
 								// 2./2 Zellen = letzte Zelle in der Zeile: Name der Partei + Begründung
 								tableContent += " <div class='col col-10' role='cell'> ";
-									tableContent += "<strong>" + arPartyNamesShort[partyNum] + "</strong>: " + ( arPartyOpinions[partyPositionsRow] === "" ? "" : "" + arPartyOpinions[partyPositionsRow] ) + " ";
+									tableContent += "<strong>" + arPartyNamesLong[partyNum] + "</strong>: " + ( arPartyOpinions[partyPositionsRow] === "" ? "" : "" + arPartyOpinions[partyPositionsRow] ) + " ";
 									
 									// die Beschreibung der Partei in einem VERSTECKTEN DIV -> ein Workaround für das Addon "Textfilter" (siehe /EXTRAS) :(
 									tableContent += "<span style='visibility:hidden; display:none;' aria-hidden='true'>"+arPartyDescription[partyNum]+"</span>"
@@ -758,16 +737,6 @@ function fnEvaluationByParty(arResults)
 	{
 
 		var partyNum=arSortParties[i];	// partyNum = sortierte Position im Endergebnis, z.B. "Neutrale Partei = 4. Partei in CSV" aber erste im Ergebnis = Nullter Wert im Array[0] = 4
-		/*
-		tableContent += " <tbody class='' id='resultsByPartyHeading"+i+"'>"
-		tableContent += " <tr>"
-		tableContent += "  <td colspan='2'>"
-		tableContent += "  &nbsp; </td>"
-		tableContent += "  <th colspan='2' scope='col' >"
-		*/
-		
-//		tableContent += "<div class='row' id='resultsByPartyRow"+i+"' role='row'>";	// Hilfszeile für Textfilter
-//			tableContent += "<div class='col'>";
 		
 		tableContent += "<span id='resultsByPartyHeading"+i+"' >";	// Hilfs-SPAN für Textfilter
 		tableContent += "<div class='row border'  role='row'>";
@@ -785,11 +754,7 @@ function fnEvaluationByParty(arResults)
 				tableContent += arPartyNamesLong[partyNum];
 				tableContent += "</strong>" 
 	//			tableContent += "</span>" 
-	
-				tableContent += " (&#8663; <a href='"+arPartyInternet[partyNum]+"' target='_blank' title='"+arPartyNamesLong[partyNum]+"'>";		
-				tableContent += arPartyNamesShort[partyNum];
-				tableContent += "</a>)";
-	
+
 				// Beschreibung der Partei - falls in der CSV vorhanden.
 				tableContent += "<p>"+arPartyDescription[partyNum]+"</p>"
 	
