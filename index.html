@@ -1,245 +1,48 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Mobilomat Freiburg</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Mobilomat, Mobilität, Freiburg, OB-Wahl, Wahlen, Politik, Bürgermeister, Kommunalwahl"/>
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="de" />
-    <meta name="Content-Language" content="de" />
-    <meta name="author" content="VCD Regionalverband Südbaden e.V." />
-    <meta name="description" content="Mobilomat" />
-  
-    <link rel="stylesheet" href="system/bootstrap4/css/bootstrap.min.css">
-    <script src="system/jquery3/jquery-3.4.1.min.js"></script>
-    <script src="system/bootstrap4/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="data/definition.js"></script>
-    <script type="text/javascript" src="system/jquery.csv-0.8.9.min.js"></script>
-    <script type="text/javascript" src="system/general.js"></script>
-    <script type="text/javascript" src="system/output.js"></script>
-    <script>
-        for (i = 0; i<= design.length-1; i++) {
-            document.writeln("<link rel='stylesheet' type='text/css' href='styles/"+design[i]+"' />");	
-        }	
-    </script>
-    <script type='text/javascript' src='i18n/i18n_de.js'></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seite im Aufbau</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+    .notice {
+      text-align: center;
+      padding: 2rem;
+      max-width: 28rem;
+    }
+    .notice h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .notice p {
+      margin: 0;
+      line-height: 1.5;
+      color: #555;
+    }
+    .date {
+      margin-top: 1.5rem;
+      font-weight: 600;
+      color: #222;
+    }
+  </style>
 </head>
 <body>
-    <div class="container container-fluid theme-showcase">
-        <main>
-            <section id="sectionDescription">
-                <div class="row border rounded">
-                    <div class="col align-self-center">
-                        <div id="descriptionAddonTop"><!-- Platzhalter / Placeholder --></div>
-                        <div id="descriptionHeading1"><h1>Mobilomat</h1></div>
-                        <div id="descriptionHeading2"><h2>zur OB-Wahl 2026 in Freiburg</h2></div>
-                        <div id="descriptionExplanation" class="lead">
-                            <p style="color: red; font-size: 150%;">
-                                Es ist ein Fehler aufgetreten.
-                                <br/> Bitte laden Sie die Seite noch einmal neu. 
-                            </p>						
-                        </div>
-                        <div id="descriptionAddonBottom"><!-- Platzhalter / Placeholder --></div>
-                    </div>
-                </div>
-                <div class="row">							
-                    <div class="col">				
-                    <button type="button" class="btn btn-primary btn-lg float-right" onclick="fnHideWelcomeMessage()" id="descriptionButtonStart">Start</button>
-                    </div>
-                </div>
-            </section>
-
-            <section id="progressCounter">
-                <div class="row"></div>
-            </section>
-
-            <section id="sectionShowQuestions">
-                <div class="row" tabindex="0" style="margin-top: 1.0em;">
-                    <div class="col">
-                            <div class="card border-dark mb-3 bg-transparent">
-                            <div class="card-header" id="showQuestionsHeader">Header</div>
-                            <div class="card-body">
-                                <p class="card-text lead" id="showQuestionsQuestion">
-                                    Frage(n) zu den verschiedenen Positionen an die Kandidat*innen.
-                                </p>
-                            </div></div>
-                            <p></p>
-                    </div>
-                </div>
-            </section>
-                    
-            
-        <!-- 3. VOTING BUTTONS -->
-
-            <section id="sectionVotingButtons">
-            
-                <div class="column">
-                    <div class="row">
-                        <button type="button" id="votingDouble" onclick="fnChangeVotingDouble()" class="btn btn-outline-dark btn-lg btn-block">[x2] Important</button>
-                    </div>
-
-                    <div class="row">
-                        <button type="button" id="votingPro" class="btn btn-success btn-lg btn-block">[&#x2714;] Pro</button>
-                    </div>
-
-                    <div class="row">
-                        <button type="button" id="votingNeutral" class="btn btn-warning btn-lg btn-block">[&#x25EF;] Neutral</button>
-                    </div>
-
-                    <div class="row">
-                        <button type="button" id="votingContra" class="btn btn-danger btn-lg btn-block">[&#x2716;] Contra</button>
-                    </div>
-
-                    <!-- Force next columns to break to new line (Bootstrap 4.4+) -->
-                    <div class="w-100"></div>
-
-                    <div class="row">
-                        <button type="button" id="votingSkip" class="btn btn-secondary btn float-right">[&#x21B7;] Skip</button>
-                    </div>
-                    
-                </div> 
-
-            </section>
-        </main>
-
-        <!-- 4. FORTSCHRITTSZÄHLER + NAVIGATION / PROGRESS BAR + NAVIGATION -->
-
-        <nav id="sectionNavigation">	
-
-            <div class="row fixed-top" style="width: inherit; top: 0%; left: 50%; transform: translateX(-50%); visibility: hidden; display: none;"> 
-                <div class="col">
-
-                    <div class="progress" style="height: 2px;">
-                        <div class="progress-bar" id="progress-bar" style="width:10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                
-                    <div id="navigationJumpToQuestion" style="display:none; width:100%">
-                        Gehe direkt zu Frage Nummer XY.
-                        Jump to Question XY directly
-                    </div>
-                    
-                </div>
-            </div>
-
-        </nav>
-            
-
-        <!-- Bootstrap-Modal STATISTIK j/n / STATISTICS y/n -->
-        
-        <div class="modal fade" id="statisticsModal" tabindex="-1" role="dialog" aria-labelledby="statisticsModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="statisticsModalLabel"> Modal TITLE </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    
-                    <div class="modal-body" id="statisticsModalBody">
-                    Modal BODY
-                    </div>
-                    
-                    <div class="modal-footer">
-                        <button type="button" id="statisticsModalButtonNo" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
-                        <button type="button" id="statisticsModalButtonYes" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>	
-            
-
-        <!-- 2. ERGEBNISSE / RESULTS -->
-
-            <section id="sectionResults">
-
-                <div class="row" id="results">
-                    <div class="col">
-            
-                        <div id="resultsAddonTop">
-                            <!-- Platzhalter / Placeholder -->
-                        </div>
-
-                        <div id="resultsHeading">
-                            &Uuml;berschrift f&uuml;r die Ergebnisse/Resultate (ungenutzt) <br /> Headline for the results (unused) 
-                        </div>
-                        
-                        <div id="resultsShort">
-                            Ergebnisse / Resultate der Parteien in tabellarischer Form <br /> Table with results (short) - DOM / id = "resultsShortTable"
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- 
-                    Auswahlknoepfe für die detaillierten Ergebnisse. Text in i18n.
-                    Buttons for detailled resuts. Labels in i18n.
-                -->
-                
-                <div class="row" id="resultsButtons">
-
-                    <div class="col">
-                        <button type="button" id="resultsButtonTheses" class="btn btn-secondary btn-block" onclick="$('#resultsByThesis').toggle(500); $('#resultsByParty').fadeOut(500); $('#resultsButtonTheses').addClass('btn-primary').removeClass('btn-secondary'); $('#resultsButtonParties').addClass('btn-secondary').removeClass('btn-primary');">[?] Show questions</button>
-                    </div>
-
-                    <div class="col">
-                        <button type="button" id="resultsButtonParties" class="btn btn-secondary btn-block" onclick="$('#resultsByParty').toggle(500); $('#resultsByThesis').fadeOut(500); $('#resultsButtonTheses').addClass('btn-secondary').removeClass('btn-primary'); $('#resultsButtonParties').addClass('btn-primary').removeClass('btn-secondary');">[#] Show parties</button>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col">
-
-                        <div id="resultsByThesis">
-                            Detaillierte Ergebnisse / Resultate mit eigener Meinung in tabellarischer Form <br /> Table with results (long / detailed)
-                        </div>
-
-                        <div id="resultsByParty">
-                            Detaillierte Ergebnisse / Resultate mit eigener Meinung in tabellarischer Form <br /> Table with results (long / detailed)
-                        </div>
-
-                        <div id="resultsAddonBottom">
-                            <!-- Platzhalter / Placeholder -->
-                        </div>
-
-                    </div>
-                </div>
-
-            </section>	
-        
-        <!-- FUSSZEILE: IMPRESSUM, NEUSTART, SOCIAL MEDIA / FOOTER: IMPRINT, RESTART, SOCIAL MEDIA -->
-
-        <footer id="sectionFooter">
-            <div class="text-center">
-                <a class='btn btn-outline-dark btn-block btn-sm' role='button' href='index.html' id="restart">Neustart</a>
-            </div>
-            <hr />
-            <div class="text-center">
-                <a role="button" href="https://bw.vcd.org/der-vcd-in-bw/suedbaden/impressum" target="_blank" id="imprint">Impressum</a>
-            </div>
-            <div class="text-center">
-                <small>Der Mobilomat basiert auf dem www.Mat-O-Wahl.de von<br/>Mathias Steudtner und ist freie Software unter GPL 3 Lizenz.</small>
-            </div>
-        </footer>
-        
-    </div>
-
-    <script type="text/javascript">
-          
-        $(document).ready(function() { 
-            fnStart(); 		
-        });
-
-    </script>	
-
+  <div class="notice">
+    <h1>Seite im Aufbau</h1>
+    <p>Der Mobilomat befindet sich derzeit im Aufbau.</p>
+    <p class="date">Freischaltung am 02. April</p>
+  </div>
 </body>
-</html> 
+</html>
